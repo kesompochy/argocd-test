@@ -23,7 +23,6 @@ spec:
         - daemon off;
         image: nginx:1.21
         imagePullPolicy: IfNotPresent
-        name: nginx
         ports:
         - containerPort: 80
           name: http-server
