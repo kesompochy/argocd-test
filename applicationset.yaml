@@ -19,6 +19,7 @@ spec:
         path: app
         kustomize:
           commonLabels:
+            resource-name: "app-{{number}}"
             branch-name: "{{branch}}"
       project: default
       destination:

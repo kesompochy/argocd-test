@@ -2,6 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app
+  labels:
+    resource-name: app-0
+    branch-name: kesompochy-patch-1
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -13,7 +16,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: app
+        app: app 
     spec:
       containers:
       - name: nginx

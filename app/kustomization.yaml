@@ -1,21 +1,22 @@
 
-bases:
+resources:
   - deployment.yaml
-
-#vars:
-#  - name: BRANCH_NAME
-#    objref:
-#      kind: Deployment
-#      name: app
-#      apiVersion: apps/v1
-#    fieldref:
-#      fieldpath: metadata.labels.branch-name
 
 replacements:
   - source:
       kind: Deployment
       name: app
       fieldPath: metadata.labels.branch-name
+    targets:
+      - select:
+          kind: Deployment
+          name: app
+        fieldPaths:
+          - spec.template.spec.containers.[name=git-sync].env.[name=GIT_SYNC_BRANCH].value
+  - source:
+      kind: Deployment
+      name: app
+      fieldPath: metadata.labels.resource-name
     targets:
       - select:
           kind: Deployment
