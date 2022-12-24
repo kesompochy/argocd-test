@@ -1,11 +1,11 @@
 bases:
   - deployment.yaml
 
-vars:
-  - name: BRANCH_NAME
-    objref:
-      kind: Deployment
-      name: app
-      apiVersion: apps/v1
-    fieldref:
-      fieldpath: metadata.labels.branch-name
+#vars:
+#  - name: BRANCH_NAME
+#    objref:
+#      kind: Deployment
+#      name: app
+#      apiVersion: apps/v1
+#    fieldref:
+#      fieldpath: metadata.labels.branch-name
