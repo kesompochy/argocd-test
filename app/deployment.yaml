@@ -38,7 +38,7 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
       - name: git-sync
-        image: docker.git.pepabo.com/minne/minne-k8s/git-sync:v3.6.2
+        image: k8s.gcr.io/git-sync:v3.1.3
         env:
           - name: GIT_SYNC_REPO
             value: https://git.com/kesompochy/argocd-test.git
