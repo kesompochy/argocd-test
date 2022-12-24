@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: my-applicationset
+spec:
+  generators:
+  - pullRequest:
+      github:
+        owner: kesompochy
+        repo: argocd-test
+      requeueAfterSeconds: 60
+  template:
+    metadata:
+      name: app-{{branch}}
+    spec:
+      source:
+        repoURL: https://github.com/kesompochy/argocd-test.git
+        targetRevision: main
+        path: app
+        kustomize:
+          commonLabels:
+            my-label: "{{number}}"
+      project: default
+      destination:
+        server: https://localhost:8080
+        namespace: test
+      syncPolicy:
+          automated:
+            prune: true
