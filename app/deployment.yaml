@@ -41,7 +41,7 @@ spec:
           - name: GIT_SYNC_REPO
             value: https://git.com/kesompochy/argocd-test.git
           - name: GIT_SYNC_BRANCH
-            value: BRANCH_NAME
+            value: $(BRANCH_NAME)
           - name: GIT_SYNC_ROOT
             value: /sync
           - name: GIT_SYNC_DEST
