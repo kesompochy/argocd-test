@@ -8,7 +8,7 @@ spec:
       github:
         owner: kesompochy
         repo: argocd-test
-      requeueAfterSeconds: 60
+      requeueAfterSeconds: 300
   template:
     metadata:
       name: app-{{branch}}

@@ -10,3 +10,15 @@ vars:
       apiVersion: apps/v1
     fieldref:
       fieldpath: metadata.labels.branch-name
+
+replacements:
+  - source:
+      kind: Deployment
+      name: app
+      fieldPath: metadata.labels.branch-name
+    targets:
+      - select:
+          kind: Deployment
+          name: app
+        fieldPaths:
+          - metadata.name
